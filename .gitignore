@@ -99,3 +99,6 @@ ENV/
 
 # mypy
 .mypy_cache/
+
+dataset/WIDER_train
+dataset/WIDER_val
