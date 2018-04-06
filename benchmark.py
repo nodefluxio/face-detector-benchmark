@@ -90,7 +90,7 @@ def extract_and_filter_data(splits):
 	return bb_gt_collection
 
 iou_threshold=0.5
-def evaluate(data_dictionary,iou_threshold):
+def evaluate(face_detector,data_dictionary,iou_threshold):
 	bb_gt_collection=extract_and_filter_data(splits)
 
 	total_data=len(bb_gt_collection.keys())
@@ -170,10 +170,17 @@ if __name__ == '__main__':
 	# face_detector=DlibCNNFaceDetector(
 	# 	nrof_upsample=0,
 	# 	model_path='models/mmod_human_face_detector.dat')
+	
+	# face_detector=TensorflowMTCNNFaceDetector(
+	# 	model_path='models/mtcnn')
+	
+	face_detector=TensoflowMobilNetSSDFaceDector(
+		det_threshold=0.3,
+		model_path='models/ssd/frozen_inference_graph_face.pb')
 
 	data_dict=extract_and_filter_data(splits)
 
-	result=evaluate(data_dict,iou_threshold)
+	result=evaluate(face_detector,data_dict,iou_threshold)
 
 	print 'Average IOU = %s'%(str(result['average_iou']))
 	print 'mAP = %s'%(str(result['mean_average_precision']))
@@ -181,34 +188,30 @@ if __name__ == '__main__':
 
 	############ Performance list ###############
 
-	# OpenCV Haar Cascade Face Detector (On CPU)
+	# OpenCV Haar Cascade Face Detector
 	# 
-	# Memory Consumption = 166 M
-	# CPU Usage = 611-650%
 	# Average IOU = 0.219
 	# mAP = 0.307
-	# Average inference time = 0.054 s/image
 
-	# DLib HOG Face Detector (On CPU)
+	# DLib HOG Face Detector
 	# 
-	# Memory Consumption = 106 M
-	# CPU Usage = 99.7-100%
 	# Average IOU = 0.253
 	# mAP = 0.365
-	# Average inference time = 0.103 s/image
 
 
-	# DLib CNN MMOD Face Detector (On GPU)
+	# DLib CNN MMOD Face Detector
 	# 
-	# Memory Consumption = 205 M
-	# GPU Memory Consumption = 945 MiB
-	# CPU Usage = 99.7-100%
 	# Average IOU = 0.286
 	# mAP = 0.416
-	# Average inference time = 0.061 s/image
-	
-	# DLib CNN MMOD Face Detector (On CPU)
+
+	# Tensorflow MTCNN Face Detector
 	# 
-	# Memory Consumption = 200-1000 M
-	# CPU Usage = 100-600%%
-	# Average inference time = 2.23 s/image
+	# Average IOU = 0.417
+	# mAP = 0.517 
+	
+	# Tensorflow Mobilenet SSD Face Detector
+	# 
+	# Average IOU = 0.598
+	# mAP = 0.751
+
+	
