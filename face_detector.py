@@ -4,6 +4,8 @@ import dlib
 import mtcnn
 import tensorflow as tf
 
+## Initializer for face detector classes
+
 class OpenCVHaarFaceDetector():
 	def __init__(self,
 		scaleFactor=1.3,
@@ -24,7 +26,6 @@ class OpenCVHaarFaceDetector():
 
 		return np.array(faces)
 		
-
 
 class DlibHOGFaceDetector():
 	def __init__(self,
