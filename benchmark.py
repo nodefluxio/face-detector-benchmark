@@ -158,10 +158,10 @@ if __name__ == '__main__':
 
 	# Uncomment one of the face detector listed below to check it's performance
 
-	# face_detector=OpenCVHaarFaceDetector(
-	# 	scaleFactor=1.3,
-	# 	minNeighbors=5,
-	# 	model_path='models/haarcascade_frontalface_default.xml')
+	face_detector=OpenCVHaarFaceDetector(
+		scaleFactor=1.3,
+		minNeighbors=5,
+		model_path='models/haarcascade_frontalface_default.xml')
 
 	# face_detector=DlibHOGFaceDetector(
 	# 	nrof_upsample=0,
@@ -174,9 +174,9 @@ if __name__ == '__main__':
 	# face_detector=TensorflowMTCNNFaceDetector(
 	# 	model_path='models/mtcnn')
 	
-	face_detector=TensoflowMobilNetSSDFaceDector(
-		det_threshold=0.3,
-		model_path='models/ssd/frozen_inference_graph_face.pb')
+	# face_detector=TensoflowMobilNetSSDFaceDector(
+	# 	det_threshold=0.3,
+	# 	model_path='models/ssd/frozen_inference_graph_face.pb')
 
 	data_dict=extract_and_filter_data(splits)
 
@@ -188,30 +188,87 @@ if __name__ == '__main__':
 
 	############ Performance list ###############
 
-	# OpenCV Haar Cascade Face Detector
+	########### OpenCV Haar Cascade Face Detector ###########
 	# 
 	# Average IOU = 0.219
 	# mAP = 0.307
+	# Inferencing time (On CPU) : 0.159 s
+	#
+	### Resource Usage (On CPU):
+	#
+	# Memory Usage : 414.453 MiB
+	# CPU Utilization : 680-730%
 
-	# DLib HOG Face Detector
+	########### DLib HOG Face Detector ###########
 	# 
 	# Average IOU = 0.253
 	# mAP = 0.365
+	# Inferencing time (On CPU) : 0.239 s
+	#
+	### Resource Usage (On CPU):
+	#
+	# Memory Usage : 270.777 MiB
+	# CPU Utilization : 99-100%
 
 
-	# DLib CNN MMOD Face Detector
+	########### DLib CNN MMOD Face Detector ###########
 	# 
 	# Average IOU = 0.286
 	# mAP = 0.416
+	# Inferencing time (On GPU) : 0.111 s
+	# Inferencing time (On CPU) : 4.534 s
+	# 
+	### Resource Usage (On GPU):
+	# 
+	# Memory Usage : 1171.367 MiB
+	# GPU Memory Usage : 1037 MiB
+	# GPU Core Utilization : 75-90%
+	# CPU Utilization : 99-100%
+	# 
+	### Resource Usage (On CPU):
+	#
+	# Memory Usage : 588.898 MiB
+	# CPU Utilization : 250-450%
 
-	# Tensorflow MTCNN Face Detector
+
+
+	########### Tensorflow MTCNN Face Detector ###########
 	# 
 	# Average IOU = 0.417
 	# mAP = 0.517 
-	
-	# Tensorflow Mobilenet SSD Face Detector
+	# Inferencing time (On GPU) : 0.699 s
+	# Inferencing time (On CPU) : 1.979 s
+	# 
+	### Resource Usage (On GPU):
+	# 
+	# Memory Usage : 2074.180 MiB
+	# GPU Memory Usage : 5004 MiB
+	# GPU Core Utilization : 10-40%
+	# CPU Utilization : 111-120%
+	# 
+	### Resource Usage (On CPU):
+	#
+	# Memory Usage : 790.129 MiB
+	# CPU Utilization : 500-600%
+
+
+	########### Tensorflow Mobilenet SSD Face Detector ###########
 	# 
 	# Average IOU = 0.598
 	# mAP = 0.751
+	# Inferencing time (On GPU) : 0.0238 s
+	# Inferencing time (On CPU) : 0.1650 s
+	#
+	### Resource Usage (On GPU):
+	# 
+	# Memory Usage : 1967.676 MiB
+	# GPU Memory Usage : 502 MiB
+	# GPU Core Utilization : 47-58%
+	# CPU Utilization : 140-150%
+	# 
+	### Resource Usage (On CPU):
+	#
+	# Memory Usage : 536.270 MiB
+	# CPU Utilization : 670-700%
 
 	

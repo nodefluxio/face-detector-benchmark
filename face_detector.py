@@ -100,7 +100,6 @@ class TensorflowMTCNNFaceDetector():
 
 		return faces
 
-
 class TensoflowMobilNetSSDFaceDector():
 	def __init__(self,
 		det_threshold=0.3,
@@ -119,7 +118,6 @@ class TensoflowMobilNetSSDFaceDector():
 			config = tf.ConfigProto()
 			config.gpu_options.allow_growth = True
 			self.sess=tf.Session(graph=self.detection_graph, config=config)
-
 
 	def detect_face(self,
 		image):
