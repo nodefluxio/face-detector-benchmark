@@ -27,11 +27,12 @@ For benchmarking purpose, we only use train and validation split of the dataset 
 face bounding boxes ground truth information.
 In order to use the benchmarking script, you should put the data under folder *dataset* like this structure :
 
-.
-+-- _dataset
+```
++-- dataset
 |   +-- WIDER_train
 |   +-- WIDER_val
 |   +-- wider_face_split
+```
 
 We perform several filtering on the dataset to avoid invalid image,(see [readme.txt](dataset/wider_face_split/readme.txt) under folder *dataset/wider_face_split*). Also based on our assumption that the detected face is not informative if it is too small, we also discard ground truth bounding boxes with height and width less than 15 pixel.
 
