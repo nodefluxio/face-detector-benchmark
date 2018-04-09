@@ -102,3 +102,4 @@ ENV/
 
 dataset/WIDER_train
 dataset/WIDER_val
+.vscode
