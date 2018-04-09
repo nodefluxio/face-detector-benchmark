@@ -41,7 +41,6 @@ We perform several filtering on the dataset to avoid invalid image,(see [readme.
 To perform performance benchmark on the available methods, you can execute the script below :
 ```
 python wider_benchmark.py --method [selected-method] --iou_threshold [float between 0-1]
-
 ```
 for the *--method* input you can select string input from the available method below:
 1. opencv_haar
