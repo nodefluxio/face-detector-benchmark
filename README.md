@@ -38,6 +38,8 @@ We perform several filtering on the dataset to avoid invalid image,(see [readme.
 
 ## Running Benchmark Script
 
+**DISCLAIMER** : In this repository, we didn't take account from which dataset the face detection model is trained (several method obviously performed better because they are trained using WIDER dataset). Our purpose in this repo is solely to show the reader which model is ready to be used and perform better on WIDER dataset. Maybe in the future we will also provide benchmark to the other dataset.
+
 To perform performance benchmark on the available methods, you can execute the script below :
 ```
 python wider_benchmark.py --method [selected-method] --iou_threshold [float between 0-1]
