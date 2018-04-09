@@ -57,7 +57,7 @@ In term of performance, we benchmark the *mean average precision (mAP)* and *ave
 
 ## Our Benchmark Result
 
-You can see our benchmark result in [here](benchmark-result.txt)
+You can see our benchmark result in [here](benchmark-result.txt). For resource usage metrices, we are using python *memory profiler*
 
 ## Try on Your Own Project
 
