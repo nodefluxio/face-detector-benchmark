@@ -1,7 +1,7 @@
 import numpy as np
 import cv2
 import dlib
-import mtcnn
+import resources.mtcnn.mtcnn as mtcnn
 import tensorflow as tf
 
 ## Initializer for face detector classes
